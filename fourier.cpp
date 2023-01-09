@@ -23,13 +23,13 @@ int main(int argc, char *argv[])
 
 
 
-		m = m + 1;
+		//m = m + 1;
 		float x[m], y[m], a[m], b[m]; //cos—>a, sin—>b
 		float maca, macb;		//sigma a=maca, sigmab=macb
 		
 
 		cout << "enter x: "<<endl;
-		for (i = 1; i < m; i++)
+		for (i = 0; i < m; i++)
 		{
 			cin >> x[i];
 			if (l == 1)
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 			}
 		}
 		cout << "enter y: "<<endl;
-		for (i = 1; i < m; i++)
+		for (i = 0; i < m; i++)
 		{
 			cin >> y[i];
 		}
@@ -47,9 +47,9 @@ int main(int argc, char *argv[])
 		
 
 		//full fourier
-		for (j = 1; j < (n + 1); j++)
+		for (j = 0; j < (n); j++)
 		{
-			for (i = 1; i < m; i++)
+			for (i = 0; i < m; i++)
 			{
 				k = ((j * pi * x[i]) / L);
 				a[i] = (y[i] * cos(k));
@@ -57,13 +57,13 @@ int main(int argc, char *argv[])
 			}
 			maca = 0;
 			macb = 0;
-			for (p = 1; p < m; p++)
+			for (p = 0; p < m; p++)
 			{
 				maca = (maca + a[p]);
 				macb = (macb + b[p]);
 			}
-			cout << "a" << j << "=" << ((2 * maca) / (m - 1)) << ", ";
-			cout << "b" << j << "=" << ((2 * macb) / (m - 1)) << endl
+			cout << "a" << j << "=" << ((2 * maca) / m) << ", ";
+			cout << "b" << j << "=" << ((2 * macb) / m) << endl
 				 << endl;
 		}
 	}
